@@ -39,7 +39,6 @@ def handler(event, context):
         image_extension = imghdr.what('', image_format);
         #print(image_extension)
         
-        dec = base64.b64decode(image)
         s3_client.put_object(Bucket=BUCKET, Key=uname + '.' + image_extension, Body=image_format)
         
         return {
